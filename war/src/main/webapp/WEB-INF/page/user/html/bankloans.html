@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9;IE=8;IE=7;IE=EDGE,chrome=1">
+    <title></title>
+    <!--引入css样式-->
+    <link rel="stylesheet" href="${request.contextPath}/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${request.contextPath}/resources/css/bootstrap-theme.min.css">
+    <!--引入js-->
+    <script type="text/javascript" charset="utf-8"
+            src="${request.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${request.contextPath}/resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${request.contextPath}/resources/js/npm.js"></script>
+    <style>
+
+        .img-xxx {
+            /*高*/
+            width: 100%;
+            /*宽*/
+            height: 50px;
+            /*向左浮动*/
+            float: right;
+        }
+
+        /*头部下拉框div*/
+        .select {
+            /*开启绝对定位*/
+            position: absolute;
+            right: 0;
+            /*   !*内边距*!
+               padding: 2px;*/
+            /*外边距*/
+            margin: 5px;
+            /*高*/
+            width: 20%;
+            /*宽*/
+            height: 30px;
+            /*边*/
+
+            margin-bottom: 4px;
+        }
+
+        /*下拉框*/
+        .select > select {
+            padding: 2px;
+            /*外边距*/
+            margin: 5px;
+            /*高*/
+            /*
+              !*宽*!
+              height: 29px;
+              !*边*!
+              margin: 19px;
+        */
+            /*宽*/
+            height: 29px;
+            width: 80%;
+        }
+
+        .select-2 {
+
+            width: 15%;
+            height: 35px;
+            margin: 20px;
+        }
+
+        .box-xxx > ul > li > ul > li {
+            list-style: none;
+        }
+
+        .box-xxx {
+            padding: 0;
+            margin: 0;
+            /*高*/
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+        }
+
+
+        /*  <!--菜单栏 div-->*/
+
+        .bodey-xxx {
+            width: 200px;
+            background-color: gold;
+            height: 100%;
+        }
+
+        /*融资管理div*/
+        .ronz {
+            background-color: rgb(12, 36, 72);
+            width: 90%;
+            height: 40px;
+            font-size: 20px;
+            font-style: revert;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+
+        .input-box > input {
+            width: 15%;
+            height: 35px;
+            margin: 20px;
+        }
+
+        /*按钮1*/
+        .button-xxx {
+            position: absolute;
+            /*  left, right, bottom, top要和position一起使用，margin-*不用 *!*/
+            right: 50%;
+
+
+        }
+
+        #data-list {
+            /*向左浮动*/
+            float: right;
+
+            margin: 50px;
+
+        }
+
+        /*第二个查询按钮*/
+        #buttonxx {
+            /*向右浮动*/
+            float: right;
+            /*外边距*/
+            margin-right: 300px;
+            /*变小手*/
+            cursor: pointer;
+        }
+
+        .span-button {
+            /*外边距*/
+            margin-bottom: 30px
+        }
+
+        /*超链接*/
+        .a-xxx {
+            /*变小手*/
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+<body class="hashover">
+<!--头部下拉框-->
+<div class="container-fluid">
+    <div class="select">
+        <span class="ronz2">机构</span>
+        <select>
+            <option>美的集团财务有限公司顺德本部</option>
+            <option>美的集团财务有限公司芜湖本部</option>
+            <option>美的集团财务有限公司合肥本部</option>
+
+        </select>
+    </div>
+
+
+    <img src="/resources/img/top_banner.jpg" class="img-xxx">
+
+</div>
+
+<!--导航栏-->
+<div class="row">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <!-- 定义汉堡按钮 -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
+                    <li><a href="#">基础数据</a></li>
+                    <li><a href="#">银企平台</a></li>
+                    <li><a href="#">融资管理</a></li>
+                    <li><a href="#">投资管理</a></li>
+                    <li><a href="#">外汇管理</a></li>
+                    <li><a href="#">资金核心</a></li>
+                    <li><a href="#">集团票据</a></li>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+</div>
+
+
+<!--菜单栏-->
+<div class="row">
+    <div class="col-md-3">
+        <div class="ronz">
+            <span class="ronz">融资管理</span>
+
+        </div>
+        <div class="box-xxx">
+            <ul>
+                <li style=" list-style: none">
+                    <span>银行借款</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <span>到期提醒设置</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>银行借款申请</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>银行借款展期申请</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>加盖印鉴申请</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>银行借款合同维护</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>银行借款到款登记</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>银行借款还款申请</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>银行借款还款登记</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>银行借款业务查询</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>拆借利率维护</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--主体-->
+    <div class="col-lg-9">
+
+        <span>你的位置: 首页>融资管理>银行借款>银行借款申请</span>
+        <br/>
+
+        <div class="input-box">
+            申请流水号 <input type="text" class="" name="" placeholder="" value="">
+            办理行名称 <input type="text" class="" placeholder="" value="">
+            单位名称 <input type="text" class="" placeholder="" value="">
+        </div>
+
+        <div class="input-box">
+            业务类型 <select class="select-2">
+            <option>银行借款申请</option>
+
+        </select>
+            申办日期由 <input type="text" class="" placeholder="" value="">
+            申请日期至 <input type="text" class="" placeholder="" value="">
+        </div>
+
+        <div class="input-box">
+            申请币种 <select class="select-2">
+            <option>请选择</option>
+            <option>加拿大元</option>
+            <option>人民币元</option>
+            <option>欧元</option>
+            <option>英镑</option>
+            <option>港元</option>
+            <option>印度卢比</option>
+            <option>日元</option>
+            <option>韩元</option>
+            <option>澳门元</option>
+            <option>新加坡元</option>
+            <option>新台币</option>
+            <option>美元</option>
+
+        </select>
+            申请理由 <input type="text" class="" placeholder="" value="">
+            申请金额至 <input type="text" class="" placeholder="" value="">
+        </div>
+
+        <div>
+            申请单状态 <select class="select-2">
+            <option>请选择</option>
+            <option>保存</option>
+            <option>提交审批</option>
+            <option>审批拒绝</option>
+            <option>审批通过</option>
+            <option>办理退回</option>
+        </select>
+
+        </div>
+
+        <div class="button-xxx">
+            <button type="button" class="btn btn-info"> &nbsp; &nbsp; &nbsp;查询 &nbsp; &nbsp;&nbsp;</button>
+            &nbsp;&nbsp;
+            <button type="button" class="btn btn-default"> &nbsp; &nbsp;&nbsp; 重置&nbsp;&nbsp; &nbsp;</button>
+            &nbsp;&nbsp; <span style="font-family:'微软雅黑';">收起</span>
+        </div>
+
+
+    </div>
+
+
+    <div class="col-lg-9" id="data-list">
+
+        <div class="span-button">
+            <span>查询结果</span>
+            <button type="button" class="btn btn-info" id="buttonxx"> &nbsp; &nbsp; &nbsp;新增 &nbsp;&nbsp; &nbsp;
+            </button>
+        </div>
+
+        <!--数据列表-->
+        <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
+            <thead>
+            <tr>
+                <th class="" style="padding-right:0px;">
+                    <input id="selall" type="checkbox" class="icheckbox_square-blue">
+                </th>
+
+                <th class="sorting">申请流水号</th>
+                <th class="sorting">业务类型</th>
+                <th class="sorting">单位名称</th>
+                <th class="sorting">办理行名称</th>
+                <th class="sorting">申请币种</th>
+                <th class="sorting">申请金额</th>
+                <th class="sorting">申请日期</th>
+                <th class="sorting">申请人</th>
+                <th class="sorting">申请单状态</th>
+                <th class="sorting">操作</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+
+
+            <tr>
+                <td><input name="ids" type="checkbox"></td>
+                <td>
+                    A201709090001
+                </td>
+                <td>银行借款申请</td>
+                <td>广东美的厨房电器制造有限公司</td>
+                <td>昆仑银行股份有限公司乌鲁木齐分行营业部</td>
+                <td>日元</td>
+                <td>7,773,955.00</td>
+                <td>2017-11-12 9:00:12</td>
+                <td>qywang</td>
+                <td>保存</td>
+                <td><a class="a-xxx" href="#">查看</a></td>
+
+
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            </tbody>
+    </div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoyu.dao.SequenceMapper">
+  <resultMap id="BaseResultMap" type="com.xiaoyu.domain.Sequence">
+    <id column="name" jdbcType="VARCHAR" property="name" />
+    <result column="current_value" jdbcType="INTEGER" property="currentValue" />
+    <result column="increment" jdbcType="INTEGER" property="increment" />
+  </resultMap>
+  <select id="queryNextSequence" flushCache="true" useCache="false" parameterType="com.xiaoyu.domain.Sequence" resultMap="BaseResultMap">
+    SELECT NEXTVAL('seq_loan')  current_value from dual ;
+  </select>
+</mapper>

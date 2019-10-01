@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoyu.dao.TUserMapper">
+    <resultMap id="BaseResultMap" type="com.xiaoyu.domain.TUser">
+        <result column="id" jdbcType="BIGINT" property="id"/>
+        <result column="userId" jdbcType="VARCHAR" property="userid"/>
+        <result column="userName" jdbcType="VARCHAR" property="username"/>
+        <result column="userPassword" jdbcType="VARCHAR" property="userpassword"/>
+        <result column="userGender" jdbcType="INTEGER" property="usergender"/>
+        <result column="userAge" jdbcType="INTEGER" property="userage"/>
+        <result column="userAddress" jdbcType="VARCHAR" property="useraddress"/>
+        <result column="userPower" jdbcType="INTEGER" property="userpower"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="createById" jdbcType="VARCHAR" property="createbyid"/>
+        <result column="createByName" jdbcType="VARCHAR" property="createbyname"/>
+        <result column="createTime" jdbcType="TIMESTAMP" property="createtime"/>
+        <result column="updateById" jdbcType="VARCHAR" property="updatebyid"/>
+        <result column="updateByName" jdbcType="VARCHAR" property="updatebyname"/>
+        <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime"/>
+    </resultMap>
+    <!--新增用户-->
+    <insert id="insertTUser" parameterType="com.xiaoyu.domain.TUser">
+      insert into t_user (id, userId, userName,
+        userPassword, userGender, userAge,
+        userAddress, userPower, status, createById,
+        createByName, createTime, updateById,
+        updateByName, updateTime)
+      values (#{id,jdbcType=BIGINT}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+        #{userpassword,jdbcType=VARCHAR}, #{usergender,jdbcType=INTEGER}, #{userage,jdbcType=INTEGER},
+        #{useraddress,jdbcType=VARCHAR}, #{userpower,jdbcType=INTEGER},#{status,jdbcType=INTEGER}, #{createbyid,jdbcType=VARCHAR},
+        #{createbyname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatebyid,jdbcType=VARCHAR},
+        #{updatebyname,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP})
+    </insert>
+
+    <!--修改用户-->
+    <update id="updateTUser" parameterType="com.xiaoyu.domain.TUser">
+        update t_user set
+        <trim suffixOverrides=",">
+            <if test="userid != null  and userid  != ''">
+                userid= #{userid},
+            </if>
+            <if test="username != null and username  != ''">
+                username= #{username},
+            </if>
+            <if test="userpassword != null  and userpassword  != ''">
+                userpassword = #{userpassword},
+            </if>
+            <if test="usergender != null">
+                usergender= #{usergender},
+            </if>
+            <if test="userage != null">
+                userage= #{userage},
+            </if>
+            <if test="useraddress != null and useraddress  != ''">
+                useraddress= #{useraddress},
+            </if>
+            <if test="userpower != null ">
+                userpower= #{userpower},
+            </if>
+            <if test="status != null ">
+                status= #{status},
+            </if>
+            <if test="createbyid != null and createbyid  != ''">
+                createbyid= #{createbyid},
+            </if>
+            <if test="createbyname != null and createbyname  != ''">
+                createbyname= #{createbyname},
+            </if>
+            <if test="createtime != null ">
+                createtime= #{createtime},
+            </if>
+            <if test="updatebyid != null and updatebyid  != ''">
+                updatebyid= #{updatebyid},
+            </if>
+            <if test="updatebyname != null and updatebyname  != ''">
+                useraddress= #{useraddress},
+            </if>
+            <if test="updatetime != null ">
+                updatetime= #{updatetime}
+            </if>
+        </trim>
+        where 1=1 and status = 1
+        <if test="id != null ">
+            and id = #{id}
+        </if>
+        <if test="userid != null and userid  != ''">
+            and userid = #{userid}
+        </if>
+    </update>
+
+    <!--查询用户-->
+    <select id="queryTUser" parameterType="com.xiaoyu.domain.TUser" resultType="com.xiaoyu.domain.TUser">
+        select
+        t.id,t.userId,t.userName,
+        t.userPassword, t.userGender, t.userAge,
+        t.userAddress, t.userPower, t.status, t.createById,
+        t.createByName, t.createTime, t.updateById,
+        t.updateByName, t.updateTime
+        from t_user t
+        where t.status=1
+        <if test="id != null">
+            and t.id = #{id}
+        </if>
+        <if test="userid != null and userid  != ''">
+            and t.userid = #{userid}
+        </if>
+    </select>
+
+    <!--查询多个-->
+    <select id="queryListTUser" parameterType="com.xiaoyu.domain.TUser" resultType="com.xiaoyu.domain.TUser">
+        select
+        t.id,t.userId,t.userName,
+        t.userPassword, t.userGender, t.userAge,
+        t.userAddress, t.userPower, t.status, t.createById,
+        t.createByName, t.createTime, t.updateById,
+        t.updateByName, t.updateTime
+        from t_user t1,t_user t2
+        where
+
+
+    </select>
+
+    <!--分页查询-->
+    <select id="queryTUserByPage" parameterType="com.xiaoyu.domain.TUser" resultType="com.xiaoyu.domain.TUser">
+        select
+        t.id,
+        t.userId,
+        t.userName,
+        t.userPassword,
+        t.userGender,
+        t.userAge,
+        t.userAddress,
+        t.userPower,
+        t.status,
+        t.createById,
+        t.createByName,
+        t.createTime,
+        t.updateById,
+        t.updateByName,
+        t.updateTime
+        from t_user t
+        where 1 = 1
+        <if test="userid != null  and userid  != ''">
+            and t.userid= #{userid}
+        </if>
+        <if test="username != null and username  != ''">
+            and t.username= #{username}
+        </if>
+        <if test="userpassword != null  and userpassword  != ''">
+            and t.userpassword = #{userpassword}
+        </if>
+        <if test="usergender != null">
+            and t.usergender= #{usergender}
+        </if>
+        <if test="userage != null">
+            and t.userage= #{userage}
+        </if>
+        <if test="useraddress != null and useraddress  != ''">
+            and t.useraddress= #{useraddress}
+        </if>
+        <if test="userpower != null ">
+            and t.userpower= #{userpower}
+        </if>
+        <if test="status != null ">
+            and t.status= #{status}
+        </if>
+        <if test="createbyid != null and createbyid  != ''">
+            and t.createbyid= #{createbyid}
+        </if>
+        <if test="createbyname != null and createbyname  != ''">
+            and createbyname= #{createbyname}
+        </if>
+        <if test="createtime != null ">
+            and t.createtime= #{createtime}
+        </if>
+        <if test="updatebyid != null and updatebyid  != ''">
+            and t.updatebyid= #{updatebyid}
+        </if>
+        <if test="updatebyname != null and updatebyname  != ''">
+            and t.useraddress= #{useraddress}
+        </if>
+        <if test="updatetime != null ">
+            and t.updatetime= #{updatetime}
+        </if>
+        order by t.id desc
+    </select>
+
+</mapper>
